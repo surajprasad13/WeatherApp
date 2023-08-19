@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00906C4D2A9133D300294874 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00906C462A9133D200294874 /* Roboto-Medium.ttf */; };
+		00906C4E2A9133D300294874 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00906C472A9133D200294874 /* Roboto-Italic.ttf */; };
+		00906C4F2A9133D300294874 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00906C482A9133D200294874 /* Roboto-Black.ttf */; };
+		00906C502A9133D300294874 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00906C492A9133D200294874 /* Roboto-Regular.ttf */; };
+		00906C512A9133D300294874 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00906C4A2A9133D300294874 /* Roboto-Thin.ttf */; };
+		00906C522A9133D300294874 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00906C4B2A9133D300294874 /* Roboto-Light.ttf */; };
+		00906C532A9133D300294874 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00906C4C2A9133D300294874 /* Roboto-Bold.ttf */; };
 		00E356F31AD99517003FC87E /* WeatherAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* WeatherAppTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-WeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-WeatherApp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
@@ -27,6 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00906C462A9133D200294874 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "../src/assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		00906C472A9133D200294874 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Italic.ttf"; path = "../src/assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		00906C482A9133D200294874 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "../src/assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		00906C492A9133D200294874 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		00906C4A2A9133D300294874 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Thin.ttf"; path = "../src/assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		00906C4B2A9133D300294874 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "../src/assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		00906C4C2A9133D300294874 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../src/assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* WeatherAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherAppTests.m; sourceTree = "<group>"; };
@@ -116,6 +130,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				00906C482A9133D200294874 /* Roboto-Black.ttf */,
+				00906C4C2A9133D300294874 /* Roboto-Bold.ttf */,
+				00906C472A9133D200294874 /* Roboto-Italic.ttf */,
+				00906C4B2A9133D300294874 /* Roboto-Light.ttf */,
+				00906C462A9133D200294874 /* Roboto-Medium.ttf */,
+				00906C492A9133D200294874 /* Roboto-Regular.ttf */,
+				00906C4A2A9133D300294874 /* Roboto-Thin.ttf */,
 				13B07FAE1A68108700A75B9A /* WeatherApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* WeatherAppTests */,
@@ -242,8 +263,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00906C512A9133D300294874 /* Roboto-Thin.ttf in Resources */,
+				00906C502A9133D300294874 /* Roboto-Regular.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				00906C4E2A9133D300294874 /* Roboto-Italic.ttf in Resources */,
+				00906C4F2A9133D300294874 /* Roboto-Black.ttf in Resources */,
+				00906C532A9133D300294874 /* Roboto-Bold.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				00906C522A9133D300294874 /* Roboto-Light.ttf in Resources */,
+				00906C4D2A9133D300294874 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,7 +592,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -592,12 +620,14 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -635,7 +665,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -655,12 +685,14 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
