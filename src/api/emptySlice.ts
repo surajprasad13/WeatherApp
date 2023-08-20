@@ -1,15 +1,15 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {RootState} from '../redux';
+
+import Config from 'react-native-config';
 
 export const emptySplitApi = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://54.90.89.188:9000/',
-    prepareHeaders: async (headers, {getState}) => {
-      const token = (getState() as RootState).auth.user?.token;
-
-      if (token) {
-        headers.set('Authorization', `Bearer ${token}`);
+    baseUrl: 'https://api.openweathermap.org/data/2.5/weather',
+    prepareHeaders: async (headers, {}) => {
+      const key = Config.API_KEY;
+      if (key) {
+        headers.append('appid', key);
       }
       return headers;
     },
