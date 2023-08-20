@@ -1,6 +1,6 @@
 # Weather App README
 
-<img src="src/assets/images/WeatherApp.png" >
+<img src="src/assets/images/WeatherApp.png" style="width:200px; height:400px;" >
 
 Welcome to the Weather App README! This document provides comprehensive information about the Weather App, including its purpose, features, installation instructions, usage guidelines, and more.
 
