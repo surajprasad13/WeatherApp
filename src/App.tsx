@@ -7,6 +7,7 @@ import store, {persistor} from './redux';
 import AppNavigator from './routes';
 import {PersistGate} from 'redux-persist/integration/react';
 import {Provider as PaperProvider} from 'react-native-paper';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -16,12 +17,11 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaProvider>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-
       <PaperProvider>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
@@ -29,7 +29,7 @@ function App(): JSX.Element {
           </PersistGate>
         </Provider>
       </PaperProvider>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
