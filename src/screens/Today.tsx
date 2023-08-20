@@ -1,22 +1,49 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {View, Text, Image, StyleSheet, FlatList} from 'react-native';
+
+//icons
+import Feather from 'react-native-vector-icons/Feather';
+
+//helpers
+import {colors, appstyle, fonts} from '../theme';
 
 const Card = () => {
   return (
     <View style={styles.card}>
-      <Image
-        source={{uri: 'https://example.com/your-image-url.jpg'}}
-        style={styles.image}
-      />
-      <Image
-        source={{uri: 'https://source.unsplash.com/400x400?weather'}}
+      <View
         style={{
-          width: 20,
-          height: 20,
-          borderRadius: 10,
-        }}
-      />
-      <Text>Wind Speed</Text>
+          width: 30,
+          height: 30,
+          borderRadius: 15,
+          margin: 5,
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: 'white',
+        }}>
+        <Feather name="wind" size={12} />
+      </View>
+      <View>
+        <Text
+          style={{
+            textAlign: 'center',
+            fontSize: 12,
+            fontFamily: fonts.semibold,
+            color: colors.black,
+            margin: 5,
+          }}>
+          Wind Speed
+        </Text>
+        <Text
+          style={{
+            textAlign: 'center',
+            fontSize: 12,
+            fontFamily: fonts.semibold,
+            color: colors.black,
+            margin: 5,
+          }}>
+          12 KM/hr
+        </Text>
+      </View>
     </View>
   );
 };
@@ -44,9 +71,7 @@ const Today: FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     margin: 10,
-    marginTop: 10,
   },
   column: {
     flex: 1,
@@ -61,12 +86,10 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
     margin: 5,
-  },
-  image: {
-    width: 150,
-    height: 50,
-    resizeMode: 'cover',
-    borderRadius: 10,
+    height: 80,
+    width: 170,
+
+    flexDirection: 'row',
   },
   cardText: {
     fontSize: 16,

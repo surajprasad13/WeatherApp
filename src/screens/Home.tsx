@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     width: 'auto',
+    height: 250,
     borderBottomLeftRadius: 40,
     minHeight: 300,
   },
