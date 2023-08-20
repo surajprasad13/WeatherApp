@@ -1,6 +1,5 @@
+import React, {FC} from 'react';
 import {View, Text, Image, StyleSheet, FlatList} from 'react-native';
-import React from 'react';
-import {colors} from '../theme';
 
 const Card = () => {
   return (
@@ -22,7 +21,7 @@ const Card = () => {
   );
 };
 
-const Today = () => {
+const Today: FC = () => {
   const data = [1, 2, 3, 4];
 
   const renderItem = ({item}) => (

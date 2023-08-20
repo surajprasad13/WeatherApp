@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import {
   View,
   Text,
@@ -6,28 +6,12 @@ import {
   Image,
   ImageBackground,
   TouchableOpacity,
-  SafeAreaView,
+  ScrollView,
 } from 'react-native';
 import {colors, appstyle} from '../theme';
-import Today from './Today';
-import Tommarrow from './Tommarrow';
-import TenDay from './TenDay';
 
-const Home = () => {
+const Home: FC = () => {
   const [activeTab, setActiveTab] = useState('Today');
-
-  const renderTabContent = () => {
-    switch (activeTab) {
-      case 'Today':
-        return <Today />;
-      case 'Tomorrow':
-        return <Tommarrow />;
-      case '10 Days':
-        return <TenDay />;
-      default:
-        return null;
-    }
-  };
 
   const renderTabs = () => {
     return ['Today', 'Tomorrow', '10 Days'].map(tabTitle => (
@@ -46,7 +30,7 @@ const Home = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView>
       <ImageBackground
         source={{
           uri: 'https://source.unsplash.com/400x400?weather',
@@ -64,8 +48,7 @@ const Home = () => {
         </View>
       </ImageBackground>
       <View style={styles.tabButtonsContainer}>{renderTabs()}</View>
-      {renderTabContent()}
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
@@ -76,8 +59,8 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     width: 'auto',
-    flex: 0.5,
     borderBottomLeftRadius: 40,
+    minHeight: 300,
   },
   imageBackgroundImageStyle: {
     borderBottomLeftRadius: 20,

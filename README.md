@@ -1,6 +1,6 @@
 # Weather App README
 
-![Weather App](weather_app_preview.png)
+![Weather App](src/assets/images/WeatherApp.png)
 
 Welcome to the Weather App README! This document provides comprehensive information about the Weather App, including its purpose, features, installation instructions, usage guidelines, and more.
 
@@ -33,14 +33,14 @@ To use the Weather App, follow these steps:
 1. **Clone the Repository**:
 
    ```
-   git clone https://github.com/your-username/weather-app.git
+   git clone https://github.com/surajprasad13/WeatherApp.git
    cd weather-app
    ```
 
 2. **Install Dependencies**:
 
    ```
-   npm install
+   yarn install
    ```
 
 3. **API Key Setup**:
@@ -52,7 +52,7 @@ To use the Weather App, follow these steps:
    npm start
    ```
 
-5. Access the app at `http://localhost:3000` in your web browser.
+5. Access the app at `http://localhost:8081` in your web browser.
 
 ## 4. Usage
 
@@ -81,8 +81,8 @@ The Weather App is licensed under the [MIT License](LICENSE). You are free to us
 
 ---
 
-We hope you enjoy using the Weather App! If you encounter any issues or have suggestions for improvement, please feel free to open an issue on our [GitHub repository](https://github.com/your-username/weather-app).
+We hope you enjoy using the Weather App! If you encounter any issues or have suggestions for improvement, please feel free to open an issue on our [GitHub repository](https://github.com/surajprasad13/WeatherApp).
 
-For inquiries, contact us at <weatherapp@example.com>.
+For inquiries, contact us at surajvishwakarma830@gmail.com
+@surajprasad13
 
-*(This README template is for demonstration purposes and may require customization based on your actual project's structure and technologies.)*
