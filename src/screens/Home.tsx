@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -8,10 +8,25 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+import Geolocation from '@react-native-community/geolocation';
+
+// helpers
 import {colors, appstyle} from '../theme';
+import {useCurrentMutation} from '../api/weather';
 
 const Home: FC = () => {
   const [activeTab, setActiveTab] = useState('Today');
+
+  Geolocation.getCurrentPosition(info => console.log(info));
+
+  // const [setCurrent, {isLoading, data, error}] = useCurrentMutation();
+
+  // useEffect(() => {
+  //   setCurrent({
+  //     lat: 57,
+  //     lon: -2.15,
+  //   });
+  // }, []);
 
   const renderTabs = () => {
     return ['Today', 'Tomorrow', '10 Days'].map(tabTitle => (

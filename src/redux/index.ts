@@ -9,16 +9,16 @@ import {
   persistReducer,
   persistStore,
 } from 'redux-persist';
-import {api} from '../api'; // Import your API slice
+import {api} from '../api';
 import {setupListeners} from '@reduxjs/toolkit/query/react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import authSlice from './reducers/authSlice';
+import weatherSlice from './reducers/weatherSlice';
 
 const persistConfig = {
-  key: 'root', // Key for the storage
-  storage: AsyncStorage, // Storage engine to use
-  whitelist: ['auth'], // List of reducers to persist
-  // You can also use blacklist to exclude certain reducers from persisting
+  key: 'root',
+  storage: AsyncStorage,
+  whitelist: ['auth'],
 };
 
 const persistedReducer = persistReducer(
@@ -26,6 +26,7 @@ const persistedReducer = persistReducer(
   combineReducers({
     [api.reducerPath]: api.reducer,
     auth: authSlice,
+    weather: weatherSlice,
   }),
 );
 
