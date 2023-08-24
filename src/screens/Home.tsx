@@ -7,12 +7,17 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
+  FlatList,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 
+//icons
+
 // helpers
-import {colors, appstyle} from '../theme';
+import {colors, appstyle, fonts} from '../theme';
 import {useCurrentMutation} from '../api/weather';
+import WeatherCard from './WeatherCard';
+import CloudyCard from './CloudyCard';
 
 const Home: FC = () => {
   const [activeTab, setActiveTab] = useState('Today');
@@ -27,6 +32,8 @@ const Home: FC = () => {
   //     lon: -2.15,
   //   });
   // }, []);
+
+  const data = [0, 1, 2, 3];
 
   const renderTabs = () => {
     return ['Today', 'Tomorrow', '10 Days'].map(tabTitle => (
@@ -63,6 +70,18 @@ const Home: FC = () => {
         </View>
       </ImageBackground>
       <View style={styles.tabButtonsContainer}>{renderTabs()}</View>
+      <FlatList
+        data={data}
+        numColumns={2}
+        renderItem={({item, index}) => <WeatherCard />}
+        keyExtractor={(item, index) => index.toString()}
+      />
+
+      <FlatList
+        data={data}
+        renderItem={({item, index}) => <CloudyCard />}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </ScrollView>
   );
 };
@@ -74,9 +93,8 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     width: 'auto',
-    height: 250,
+    height: 300,
     borderBottomLeftRadius: 40,
-    minHeight: 300,
   },
   imageBackgroundImageStyle: {
     borderBottomLeftRadius: 20,
@@ -88,7 +106,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   headerText: {
-    fontWeight: '600',
+    fontFamily: fonts.semibold,
     color: colors.white,
     fontSize: 16,
   },
@@ -100,8 +118,7 @@ const styles = StyleSheet.create({
   tabButtonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: 20,
-    marginTop: 20,
+    margin: 10,
   },
   tabButton: {
     paddingVertical: 10,
