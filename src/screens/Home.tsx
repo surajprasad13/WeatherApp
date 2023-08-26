@@ -7,33 +7,56 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
-  FlatList,
+  Dimensions,
+  ActivityIndicator,
 } from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Geolocation from '@react-native-community/geolocation';
+import moment from 'moment';
+import FastImage from 'react-native-fast-image';
 
 //icons
 
 // helpers
 import {colors, appstyle, fonts} from '../theme';
-import {useCurrentMutation} from '../api/weather';
+import {useCurrentMutation, useHourlyMutation} from '../api/weather';
 import WeatherCard from './WeatherCard';
 import CloudyCard from './CloudyCard';
+
+const {} = Dimensions.get('window');
 
 const Home: FC = () => {
   const [activeTab, setActiveTab] = useState('Today');
 
-  Geolocation.getCurrentPosition(info => console.log(info));
+  const insets = useSafeAreaInsets();
 
-  // const [setCurrent, {isLoading, data, error}] = useCurrentMutation();
+  useEffect(() => {
+    Geolocation.getCurrentPosition(info => console.log(info));
+  }, []);
+
+  const [setCurrent, {isLoading, data, error}] = useCurrentMutation();
+  const [setHourly, {data: hourlyData, isLoading: hourlyLoading}] =
+    useHourlyMutation();
+
+  useEffect(() => {
+    setCurrent({
+      lat: 25.73285,
+      lon: 82.485265,
+    });
+  }, []);
+
+  useEffect(() => {
+    setHourly({
+      lat: 25.73285,
+      lon: 82.485265,
+    });
+  }, []);
 
   // useEffect(() => {
-  //   setCurrent({
-  //     lat: 57,
-  //     lon: -2.15,
-  //   });
-  // }, []);
-
-  const data = [0, 1, 2, 3];
+  //   if (hourlyData) {
+  //     console.log(JSON.stringify(hourlyData));
+  //   }
+  // }, [hourlyData, hourlyLoading]);
 
   const renderTabs = () => {
     return ['Today', 'Tomorrow', '10 Days'].map(tabTitle => (
@@ -58,30 +81,76 @@ const Home: FC = () => {
           uri: 'https://source.unsplash.com/400x400?weather',
         }}
         imageStyle={styles.imageBackgroundImageStyle}
-        style={styles.imageBackground}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Hello Weather</Text>
-          <Image
-            source={{
-              uri: 'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-1024.png',
-            }}
-            style={styles.headerIcon}
-          />
+        style={{}}>
+        <View
+          style={[
+            styles.imageBackground,
+            {backgroundColor: 'rgba(0,0,0,0.4)'},
+          ]}>
+          <View style={[styles.header, {paddingTop: insets.top - 10}]}>
+            <Text style={styles.headerText}>{data?.name}</Text>
+            <Image
+              source={{
+                uri: 'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-1024.png',
+              }}
+              style={styles.headerIcon}
+            />
+          </View>
+
+          <View style={[appstyle.rowBetween]}>
+            <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
+              <Text
+                style={{
+                  fontFamily: fonts.bold,
+                  color: colors.white,
+                  fontSize: 70,
+                }}>
+                {Math.ceil(data?.main.temp ?? 0)}°
+              </Text>
+              <Text style={{fontFamily: fonts.regular, color: colors.white}}>
+                Feels like {data?.main.feels_like}°
+              </Text>
+            </View>
+            <View>
+              <FastImage
+                source={{
+                  uri: `https://openweathermap.org/img/wn/${data?.weather[0].icon}@2x.png`,
+                }}
+                resizeMode="contain"
+                style={{width: 'auto', height: 50}}
+              />
+              <Text style={{fontFamily: fonts.regular, color: colors.white}}>
+                {data?.weather[0].main}
+              </Text>
+            </View>
+          </View>
+          <View style={[appstyle.rowBetween]}>
+            <Text style={{fontFamily: fonts.medium, color: colors.white}}>
+              {moment(new Date()).format('lll')}
+            </Text>
+            <View>
+              <Text style={{fontFamily: fonts.regular, color: colors.white}}>
+                Day -3°{' '}
+              </Text>
+              <Text style={{fontFamily: fonts.regular, color: colors.white}}>
+                Night -1°
+              </Text>
+            </View>
+          </View>
         </View>
       </ImageBackground>
       <View style={styles.tabButtonsContainer}>{renderTabs()}</View>
-      <FlatList
-        data={data}
-        numColumns={2}
-        renderItem={({item, index}) => <WeatherCard />}
-        keyExtractor={(item, index) => index.toString()}
-      />
 
-      <FlatList
-        data={data}
-        renderItem={({item, index}) => <CloudyCard />}
-        keyExtractor={(item, index) => index.toString()}
-      />
+      {/* <ScrollView>
+        {data.data.map((_, index) => (
+          <WeatherCard key={index.toString()} />
+        ))}
+      </ScrollView> */}
+
+      {hourlyLoading && <ActivityIndicator color={colors.primary} />}
+      {hourlyData?.list.map((item, index) => (
+        <CloudyCard item={item} key={index.toString()} />
+      ))}
     </ScrollView>
   );
 };
@@ -94,7 +163,10 @@ const styles = StyleSheet.create({
   imageBackground: {
     width: 'auto',
     height: 300,
-    borderBottomLeftRadius: 40,
+    justifyContent: 'space-between',
+    padding: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   imageBackgroundImageStyle: {
     borderBottomLeftRadius: 20,
@@ -103,7 +175,6 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10,
   },
   headerText: {
     fontFamily: fonts.semibold,

@@ -1,14 +1,18 @@
 import {View, Text} from 'react-native';
-import React from 'react';
+import React, {FC} from 'react';
 
 //icons
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Feather from 'react-native-vector-icons/Feather';
+import {Feather, MaterialCommunityIcons} from '../theme/icons';
 
 //helpers
-import {fonts, colors, appstyle} from '../theme';
+import {fonts, appstyle} from '../theme';
+import {HourlyListItem} from '../types/weather';
 
-const CloudyCard = () => {
+interface CloudyCardProp {
+  item: HourlyListItem;
+}
+
+const CloudyCard: FC<CloudyCardProp> = ({item}) => {
   return (
     <View
       style={{
