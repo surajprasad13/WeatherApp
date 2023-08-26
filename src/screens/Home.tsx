@@ -22,6 +22,7 @@ import {colors, appstyle, fonts} from '../theme';
 import {useCurrentMutation, useHourlyMutation} from '../api/weather';
 import WeatherCard from './WeatherCard';
 import CloudyCard from './CloudyCard';
+import HourlyCard from './HourlyCard';
 
 const {} = Dimensions.get('window');
 
@@ -40,15 +41,15 @@ const Home: FC = () => {
 
   useEffect(() => {
     setCurrent({
-      lat: 25.73285,
-      lon: 82.485265,
+      lat: 28.6302755,
+      lon: 77.3466113,
     });
   }, []);
 
   useEffect(() => {
     setHourly({
-      lat: 25.73285,
-      lon: 82.485265,
+      lat: 28.6302755,
+      lon: 77.3466113,
     });
   }, []);
 
@@ -75,7 +76,7 @@ const Home: FC = () => {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={{flex: 1, backgroundColor: 'white'}}>
       <ImageBackground
         source={{
           uri: 'https://source.unsplash.com/400x400?weather',
@@ -139,17 +140,17 @@ const Home: FC = () => {
           </View>
         </View>
       </ImageBackground>
-      <View style={styles.tabButtonsContainer}>{renderTabs()}</View>
+      {/* <View style={styles.tabButtonsContainer}>{renderTabs()}</View> */}
 
       {/* <ScrollView>
-        {data.data.map((_, index) => (
+        {[0, 1, 2, 3].map((_, index) => (
           <WeatherCard key={index.toString()} />
         ))}
       </ScrollView> */}
 
       {hourlyLoading && <ActivityIndicator color={colors.primary} />}
       {hourlyData?.list.map((item, index) => (
-        <CloudyCard item={item} key={index.toString()} />
+        <HourlyCard item={item} key={index.toString()} />
       ))}
     </ScrollView>
   );
@@ -158,7 +159,7 @@ const Home: FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'red',
   },
   imageBackground: {
     width: 'auto',
